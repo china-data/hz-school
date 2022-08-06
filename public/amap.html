@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学地图</title>
+  <style>
+    html, body {padding: 0; margin: 0;}
+    #container {width: 100vw; height: 100vh; }  
+  </style>
+</head>
+<body>
+  <div id="container"></div> 
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode:'xxx',
+    }
+  </script>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=630cebddcc4f2ae31ea8ea1ecc941612"></script> 
+  <script>
+    var map = new AMap.Map('container');
+
+    // 创建一个 Marker 实例：
+    var marker = new AMap.Marker({
+      
+        position: new AMap.LngLat(120.148953, 30.293576),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+        title: '杭州市文一街小学（文一校区）'
+    });
+
+    // 将创建的点标记添加到已有的地图实例：
+    map.add(marker);
+
+  </script>
+</body>
+</html>

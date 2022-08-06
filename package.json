@@ -1,0 +1,23 @@
+{
+  "name": "hz-school",
+  "version": "1.0.0",
+  "description": "杭州学校数据",
+  "main": "utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/china-data/hz-school.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/china-data/hz-school/issues"
+  },
+  "homepage": "https://github.com/china-data/hz-school#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
