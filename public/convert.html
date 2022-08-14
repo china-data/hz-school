@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Convert</title>
+  <style type="text/css">
+    html {
+      height: 100%
+    }
+
+    body {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+    }
+
+    #container {
+      height: 100%
+    }
+  </style>
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=6KhybhID0EVrUG6gYp1BFKblvEvqsGkk">
+    </script>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script type="text/javascript">
+    const CACHE_LOCATIONS = JSON.parse(localStorage.getItem('CACHE_LOCATIONS') || '{}');
+
+    //创建地址解析器实例
+    const myGeo = new BMapGL.Geocoder();
+    function resolveLocation(name) {
+      return new Promise(resolve => {
+        // 将地址解析结果显示在地图上，并调整地图视野
+        myGeo.getPoint(name, function (point) {
+          if (point) {
+            console.log(name, ' -> ', point);
+            resolve(point)
+          } else {
+            resolve(null);
+            // alert('您选择的地址没有解析到结果！');
+          }
+        }, '杭州市')
+      })
+    }
+
+    !(async () => {
+
+      const list = await fetch('../2022/schoolDistrict.json').then(d => d.json());
+
+      const keys = Object.keys(list);
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+        for (let j = 0; j < list[key].length; j++) {
+          console.log(`# ${i}/${keys.length} ${j}/${list[key].length}`);
+          const name = list[key][j].name;
+
+          if (!CACHE_LOCATIONS[name]) {
+            const point = await resolveLocation(name)
+            CACHE_LOCATIONS[name] = { name: name, lng: point.lng, lat: point.lat };
+
+            localStorage.setItem('CACHE_LOCATIONS', JSON.stringify(CACHE_LOCATIONS));
+          } else {
+            console.log('hit cache ', name, ' -> ', CACHE_LOCATIONS[name]);
+          }
+        }
+      }
+
+      console.log('DONE')
+
+    })();
+
+  </script>
+</body>
+
+</html>

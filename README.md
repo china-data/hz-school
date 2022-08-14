@@ -1,6 +1,20 @@
 # hz-school
 杭州学校数据
 
+1. 新建 2022 年份目录，并进入
+2. 获取所有学校列表 list.json 并存放至 2022
+3. node index.js 获取
+  * 学校位置列表
+  * 学校明细数据
+  * 学区列表名称
+4. 跑 public/convert.html
+  * 将小区转经纬度
+
+
+* http://m.creditsailing.com/XiaoXuePaiMing/718248.html
+* https://rxyj.hzedu.gov.cn/
+* http://api.map.baidu.com/lbsapi/getpoint/index.html
+* https://hangzhou.anjuke.com/
 
 # HOW_TO
 
