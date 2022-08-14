@@ -16,13 +16,22 @@
 * http://api.map.baidu.com/lbsapi/getpoint/index.html
 * https://hangzhou.anjuke.com/
 
+# Online
+
+https://china-data.github.io/hz-school/public/bmap.html
+
 # HOW_TO
 
 * SVG to DataUri: https://heyallan.github.io/svg-to-data-uri/
 * Icon: https://www.iconfont.cn/search/index?searchType=icon&q=%E5%AE%9A%E4%BD%8D&page=2&fromCollection=1&fills=&tag=complex
 * Baidu
   * http://api.map.baidu.com/lbsapi/getpoint/index.html
-  * 
+  
+  
+  
+<div style="display: none">
+
+
 * sqllite: https://www.sqlite.org/download.html
   * https://www.sqlite.org/cli.html
 
@@ -45,3 +54,5 @@ sqlite> select * from tbl1;
 hello!|10
 goodbye|20
 ```
+
+</div>
